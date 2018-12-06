@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { getItems } from '../actions'
 
 import '../style/App.css'
+import 'antd/dist/antd.css'
 
 import { css } from 'react-emotion'
 import { BarLoader } from 'react-spinners'
