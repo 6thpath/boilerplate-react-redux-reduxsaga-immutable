@@ -6,25 +6,25 @@ import { getItems } from '../actions'
 import '../style/App.css'
 import 'antd/dist/antd.css'
 
-import { css } from 'react-emotion'
 import { BarLoader } from 'react-spinners'
-import { Button } from 'antd'
+import { Affix, Button } from 'antd'
 
 class App extends Component {
   render() {
-    const override = css`
-    display: block;
-    margin: 0;
-    `
     return (
-      <div style={{padding: 0}}>
-        <BarLoader
-          className={override}
-          widthUnit={'vw'}
-          width={100}
-          color={'#36D7B7'}
-          loading={this.props.isLoading}
-        />
+      <div>
+        <Affix offsetTop={0} style={{
+          height: 3
+        }}>
+          <BarLoader
+            widthUnit={'vw'}
+            width={100}
+            heightUnit={'px'}
+            height={3}
+            color={'#36D7B7'}
+            loading={this.props.isLoading}
+          />
+        </Affix>
         <Button onClick={() => this.props.getItems()}>Fetch</Button>
         {
           this.props.items.map((item, i) => <p key={i}>{item.title}</p>)
